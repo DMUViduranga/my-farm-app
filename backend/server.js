@@ -90,12 +90,10 @@ const EmployeeSchema = new mongoose.Schema({
 
 const Employee = mongoose.model('Employee', EmployeeSchema);
 
-
-// --- 2. DATABASE CONNECTION ---
-mongoose.connect('mongodb://127.0.0.1:27017/harvest_db')
-  .then(() => console.log("✅ MongoDB Connect Una!"))
-  .catch((err) => console.error("❌ Database Connection Error:", err));
-
+// Database connection
+mongoose.connect("mongodb+srv://uviduranga8:31102000UVD@cluster0.a0tq2vb.mongodb.net/?appName=Cluster0")
+  .then(() => console.log("MongoDB Cloud Connected!"))
+  .catch((err) => console.log(err));
 
 // --- 3. ROUTES ---
 
