@@ -26,9 +26,9 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const [jobsRes, machinesRes, empRes] = await Promise.all([
-          fetch('http://localhost:5000/api/jobs'),
-          fetch('http://localhost:5000/api/machines'),
-          fetch('http://localhost:5000/api/employees')
+          fetch('https://my-farm-app-2n3x.onrender.com/api/jobs'),
+          fetch('https://my-farm-app-2n3x.onrender.com/api/machines'),
+          fetch('https://my-farm-app-2n3x.onrender.com/api/employees')
         ]);
 
         const jobs = await jobsRes.json();

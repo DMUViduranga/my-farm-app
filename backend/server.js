@@ -91,10 +91,11 @@ const EmployeeSchema = new mongoose.Schema({
 const Employee = mongoose.model('Employee', EmployeeSchema);
 
 // Database connection
-mongoose.connect("mongodb+srv://uviduranga8:31102000UVD@cluster0.a0tq2vb.mongodb.net/?appName=Cluster0")
-  .then(() => console.log("MongoDB Cloud Connected!"))
-  .catch((err) => console.log(err));
+const dbUrl = process.env.MONGO_URI || "mongodb+srv://uviduranga8:31102000UVD@cluster0.a0tq2vb.mongodb.net/?appName=Cluster0";
 
+mongoose.connect(dbUrl)
+  .then(() => console.log("MongoDB Cloud Connected!"))
+  .catch((err) => console.log(err));
 // --- 3. ROUTES ---
 
 // --- A. AUTHENTICATION ---

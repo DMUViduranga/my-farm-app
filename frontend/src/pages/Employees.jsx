@@ -22,8 +22,8 @@ const Employees = () => {
 
   const fetchData = async () => {
     try {
-      const empRes = await fetch('http://localhost:5000/api/employees');
-      const jobRes = await fetch('http://localhost:5000/api/jobs');
+      const empRes = await fetch('https://my-farm-app-2n3x.onrender.com/api/employees');
+      const jobRes = await fetch('https://my-farm-app-2n3x.onrender.com/api/jobs');
       setEmployees(await empRes.json());
       setJobs(await jobRes.json());
     } catch (error) { 
@@ -37,7 +37,7 @@ const Employees = () => {
     if (!newEmp.name) return;
 
     try {
-      const response = await fetch('http://localhost:5000/api/employees', {
+      const response = await fetch('https://my-farm-app-2n3x.onrender.com/api/employees', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...newEmp, paymentHistory: [] })
@@ -73,7 +73,7 @@ const Employees = () => {
 
     if (result.isConfirmed) {
         try {
-            await fetch(`http://localhost:5000/api/employees/${id}`, { method: 'DELETE' });
+            await fetch(`https://my-farm-app-2n3x.onrender.com/api/employees/${id}`, { method: 'DELETE' });
             fetchData();
             setSelectedEmp(null);
             Swal.fire({
@@ -114,7 +114,7 @@ const Employees = () => {
     const updatedEmployee = { ...selectedEmp, paymentHistory: updatedHistory };
 
     try {
-      await fetch(`http://localhost:5000/api/employees/${selectedEmp._id}`, {
+      await fetch(`https://my-farm-app-2n3x.onrender.com/api/employees/${selectedEmp._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedEmployee)
@@ -159,7 +159,7 @@ const Employees = () => {
     const updatedEmployee = { ...selectedEmp, paymentHistory: updatedHistory };
 
     try {
-      await fetch(`http://localhost:5000/api/employees/${selectedEmp._id}`, {
+      await fetch(`https://my-farm-app-2n3x.onrender.com/api/employees/${selectedEmp._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedEmployee)

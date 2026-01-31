@@ -69,7 +69,7 @@ const AddJob = () => {
 
     const fetchMachines = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/machines');
+            const response = await fetch('https://my-farm-app-2n3x.onrender.com/api/machines');
             if (response.ok) {
                 const data = await response.json();
                 setMachines(data);
@@ -82,7 +82,7 @@ const AddJob = () => {
  
     const fetchEmployees = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/employees');
+            const response = await fetch('https://my-farm-app-2n3x.onrender.com/api/employees');
             if (response.ok) {
                 const data = await response.json();
                 setEmployees(data);
@@ -132,7 +132,7 @@ const AddJob = () => {
     const jobData = { ...formData, totalAmount: total, balance: balance };
 
     try {
-        const response = await fetch('http://localhost:5000/api/jobs', {
+        const response = await fetch('https://my-farm-app-2n3x.onrender.com/api/jobs', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(jobData),
@@ -141,7 +141,7 @@ const AddJob = () => {
         const data = await response.json();
 
         if (response.ok) {
-            // 2. Success Alert 
+            // 2. Success Alert (Lassana ekak)
             Swal.fire({
                 icon: 'success',
                 title: 'Done!',

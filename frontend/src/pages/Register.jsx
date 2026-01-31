@@ -19,7 +19,7 @@ function Register() {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/register-owner', {
+      const res = await fetch('https://my-farm-app-2n3x.onrender.com/api/auth/register-owner', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ businessName, email, password }),

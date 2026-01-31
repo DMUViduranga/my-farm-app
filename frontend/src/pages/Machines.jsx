@@ -34,10 +34,10 @@ const Machines = () => {
 
   const fetchData = async () => {
     try {
-        const machRes = await fetch('http://localhost:5000/api/machines');
+        const machRes = await fetch('https://my-farm-app-2n3x.onrender.com/api/machines');
         if (machRes.ok) setMachines(await machRes.json());
 
-        const jobRes = await fetch('http://localhost:5000/api/jobs');
+        const jobRes = await fetch('https://my-farm-app-2n3x.onrender.com/api/jobs');
         if (jobRes.ok) setJobs(await jobRes.json());
     } catch (error) { 
         console.error(error);
@@ -67,7 +67,7 @@ const Machines = () => {
     if (!result.isConfirmed) return;
 
     try {
-        await fetch(`http://localhost:5000/api/machines/${id}`, { method: 'DELETE' });
+        await fetch(`https://my-farm-app-2n3x.onrender.com/api/machines/${id}`, { method: 'DELETE' });
         Toast.fire({ icon: 'success', title: 'Machine Deleted! 🗑️' }); // TOAST
         fetchData();
     } catch (error) { console.error(error); }
@@ -92,7 +92,7 @@ const Machines = () => {
     if (!result.isConfirmed) return;
 
     try {
-        const res = await fetch(`http://localhost:5000/api/machines/${selectedMachine._id}/expense/${type}/${recordId}`, {
+        const res = await fetch(`https://my-farm-app-2n3x.onrender.com/api/machines/${selectedMachine._id}/expense/${type}/${recordId}`, {
             method: 'DELETE'
         });
         if (res.ok) {
@@ -107,7 +107,7 @@ const Machines = () => {
   // 3. EDIT EXPENSE
   const handleEditExpense = async (type, record) => {
     // Delete old one first (same logic as before)
-    await fetch(`http://localhost:5000/api/machines/${selectedMachine._id}/expense/${type}/${record.id}`, {
+    await fetch(`https://my-farm-app-2n3x.onrender.com/api/machines/${selectedMachine._id}/expense/${type}/${record.id}`, {
         method: 'DELETE'
     });
 
@@ -119,7 +119,7 @@ const Machines = () => {
         Toast.fire({ icon: 'info', title: 'Edit mode: Form eka purawala Add obanna.' }); // TOAST
     }
     
-    const res = await fetch(`http://localhost:5000/api/machines/${selectedMachine._id}`);
+    const res = await fetch(`https://my-farm-app-2n3x.onrender.com/api/machines/${selectedMachine._id}`);
     const data = await res.json();
     setSelectedMachine(data); 
     fetchData();
@@ -130,7 +130,7 @@ const Machines = () => {
     if(!newMachineName) return Toast.fire({ icon: 'warning', title: 'Name eka danna!' });
 
     try {
-        await fetch('http://localhost:5000/api/machines', {
+        await fetch('https://my-farm-app-2n3x.onrender.com/api/machines', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: newMachineName, type: newMachineType })
@@ -144,7 +144,7 @@ const Machines = () => {
   const handleAddFuel = async (e) => {
     e.preventDefault();
     try {
-        const res = await fetch(`http://localhost:5000/api/machines/${selectedMachine._id}/expense`, {
+        const res = await fetch(`https://my-farm-app-2n3x.onrender.com/api/machines/${selectedMachine._id}/expense`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ type: 'fuel', data: { ...fuelForm, id: Date.now() } })
@@ -161,7 +161,7 @@ const Machines = () => {
   const handleAddRepair = async (e) => {
     e.preventDefault();
     try {
-        const res = await fetch(`http://localhost:5000/api/machines/${selectedMachine._id}/expense`, {
+        const res = await fetch(`https://my-farm-app-2n3x.onrender.com/api/machines/${selectedMachine._id}/expense`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ type: 'repair', data: { ...repairForm, id: Date.now() } })

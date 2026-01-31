@@ -51,7 +51,7 @@ const JobDetails = () => {
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/jobs/${id}`);
+        const response = await fetch(`https://my-farm-app-2n3x.onrender.com/api/jobs/${id}`);
         const data = await response.json();
         if (response.ok) {
           setJob(data);
@@ -92,7 +92,7 @@ const JobDetails = () => {
     };
 
     try {
-        const res = await fetch(`http://localhost:5000/api/jobs/${id}`, {
+        const res = await fetch(`https://my-farm-app-2n3x.onrender.com/api/jobs/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updatedJobData),
@@ -184,7 +184,7 @@ const JobDetails = () => {
         paymentHistory: history
       };
 
-      const res = await fetch(`http://localhost:5000/api/jobs/${id}`, {
+      const res = await fetch(`https://my-farm-app-2n3x.onrender.com/api/jobs/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updateData),
