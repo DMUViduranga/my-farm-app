@@ -3,7 +3,7 @@ import Login from './pages/Login';
 import Register from './pages/Register'; // <-- MEKA ALUTHIN DAMMA
 import Dashboard from './pages/Dashboard';
 import AddJob from './pages/AddJob';
-import Jobs from './pages/jobs';
+import Jobs from './pages/Jobs';
 import JobDetails from "./pages/JobDetails";
 import Machines from './pages/Machines';
 import Employees from './pages/Employees';
