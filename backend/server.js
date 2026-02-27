@@ -9,9 +9,13 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
 
 // --- 1. MODELS ---
+app.use(cors({
+    origin: ['https://my-farm-app-1.onrender.com', 'http://localhost:3000'], 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
 
 // A. USER MODEL
 const UserSchema = new mongoose.Schema({
@@ -275,7 +279,7 @@ app.put('/api/employees/:id', async (req, res) => {
 
 
 // Server Start
-const PORT = 5000;
+const PORT = process.env.PORT ||5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server eka duwanawa: http://localhost:${PORT}`);
 });
